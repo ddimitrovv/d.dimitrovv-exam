@@ -21,6 +21,10 @@ jobs:
       with:
         node-version: 14.x
         cache: 'npm'
-    - run: npm ci
-    - run: npm run test:unit
-    - run: echo 'd.dimitrovv'
+        
+    - name: Installign NPM
+      run: npm ci
+    - name: Run unit tests
+      run: npm run test:unit
+    - name: Show username
+      run: echo 'd.dimitrovv'
