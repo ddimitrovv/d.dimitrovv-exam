@@ -28,3 +28,16 @@ jobs:
       run: npm run test:unit
     - name: Show username
       run: echo 'd.dimitrovv'
+
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    needs: build
+
+    steps:
+    - name: Deploy to production
+      uses: johnbeynon/render-deploy-actions@0.0.8
+      with:
+        service-id: ${{secrets.SERVICE_ID}}
+        api-key: ${{secrets.RENDER_API_KEY}}
